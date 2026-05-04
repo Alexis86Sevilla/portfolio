@@ -1,0 +1,23 @@
+---
+// src/components/Header.astro
+---
+
+<header
+  class="w-full fixed top-0 left-0 right-0 bg-gray-900/70 backdrop-blur-xl z-50 border-b border-gray-800/50"
+>
+  <nav class="mx-auto px-6 py-6 flex justify-between items-center max-w-6xl">
+    <a href="/" class="text-xl font-bold tracking-tighter">ALEXIS.DEV</a>
+    <ul class="flex gap-8 text-[12px] font-mono uppercase tracking-widest">
+      <li><a href="/" class="hover:text-accent transition">Inicio</a></li>
+      <li>
+        <a href="/about" class="hover:text-accent transition">Sobre mí</a>
+      </li>
+      <li>
+        <a href="/#proyectos" class="hover:text-accent transition">Proyectos</a>
+      </li>
+      <li>
+        <a href="/#skills" class="hover:text-accent transition">Habilidades</a>
+      </li>
+    </ul>
+  </nav>
+</header>

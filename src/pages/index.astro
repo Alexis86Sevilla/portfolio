@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SEO from "../components/SEO.astro";
+import Skills from "../components/Skills.astro";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allProjects = await getCollection("projects");
+const recentProjects = allProjects.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 ---
 
 <Layout>
-	<Welcome />
+  <SEO
+    title="Alexis Dev | Portfolio"
+    description="Ingeniería de software con visión estratégica."
+  />
+
+  <Hero />
+
+  <section class="py-20 container mx-auto px-6 max-w-6xl" id="proyectos">
+    <h2 class="text-4xl font-bold tracking-tighter mb-16 text-center">
+      Proyectos
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {recentProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <Skills />
 </Layout>
