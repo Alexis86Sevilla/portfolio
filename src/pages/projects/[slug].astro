@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import SEO from "../../components/SEO.astro";
 import Layout from "../../layouts/Layout.astro";
 
@@ -12,15 +12,15 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 ---
 
 <Layout>
   <SEO title={project.data.title} description={project.data.description} />
 
-  <article class="container mx-auto px-6 py-20">
+  <article class="container mx-auto px-6 py-20 text-white">
     <h1 class="text-4xl font-bold mb-4">{project.data.title}</h1>
-    <div class="prose dark:prose-invert">
+    <div class="prose prose-invert">
       <Content />
     </div>
   </article>
