@@ -5,6 +5,6 @@ image: src/assets/images/repos.png
 type: personal
 date: 2026-05-04
 tags: ["astro", "github-api", "tailwind"]
-link: https://github.com/alexis/analizador-repos
+link: https://code-analysis.pages.dev/
 codeLink: https://github.com/Alexis86Sevilla/code-analysis
 ---
