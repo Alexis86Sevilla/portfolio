@@ -15,7 +15,8 @@
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@tailwindcss/vite": "^4.2.4",
-    "astro": "^6.2.1"
+    "astro": "^6.2.1",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.5.0",
