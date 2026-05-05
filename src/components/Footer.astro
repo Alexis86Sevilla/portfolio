@@ -1,5 +1,7 @@
 ---
 import SocialLinks from "./SocialLinks.astro";
+
+const getCurrentYear = () => new Date().getFullYear();
 ---
 
 <footer
@@ -20,11 +22,11 @@ import SocialLinks from "./SocialLinks.astro";
     >
 
     <div
-      class="flex flex-col items-center gap-8 border-t border-white/10 pt-10"
+      class="flex flex-col items-center gap-8 border-t border-white/20 pt-10"
     >
       <SocialLinks />
-      <p class="text-gray-500 text-sm">
-        © 2026 DevPortfolio. Todos los derechos reservados.
+      <p class="text-cyan-200 text-sm">
+        {getCurrentYear()} • Alexis García Mancha
       </p>
     </div>
   </div>
