@@ -1,39 +1,53 @@
 ---
 // src/components/Skills.astro
 const skills = [
-  { 
-    title: 'Frontend', 
-    icon: '🎨', 
-    items: ['React', 'Vue.js', 'Next.js', 'TypeScript', 'Tailwind CSS'] 
+  {
+    title: "Frontend",
+    icon: "🎨",
+    items: ["Angular", "SCSS", "BEM", "TypeScript", "Tailwind CSS"],
   },
-  { 
-    title: 'Backend', 
-    icon: '⚙️', 
-    items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs'] 
+  {
+    title: "Backend",
+    icon: "⚙️",
+    items: ["Java", "Spring Boot", "PostgreSQL", "REST APIs"],
   },
-  { 
-    title: 'Tools', 
-    icon: '🛠️', 
-    items: ['Git', 'Docker', 'Webpack', 'Vite', 'Figma'] 
-  }
+  {
+    title: "Tools",
+    icon: "🛠️",
+    items: [
+      "Git",
+      "Docker",
+      "Figma",
+      "Mixpanel",
+      "Google Analytics",
+      "Tag Manager",
+    ],
+  },
 ];
 ---
+
 <section class="py-16 md:py-24 px-4 md:px-6 max-w-6xl mx-auto" id="skills">
-  <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-12 md:mb-16 text-center">Habilidades</h2>
+  <h2
+    class="text-3xl md:text-4xl font-bold tracking-tighter mb-12 md:mb-16 text-center"
+  >
+    Habilidades
+  </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-    {skills.map(section => (
-      <div class="bg-[#111827] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/5">
-        <div class="text-4xl mb-6">{section.icon}</div>
-        <h3 class="text-2xl font-bold mb-8">{section.title}</h3>
-        <ul class="space-y-4">
-          {section.items.map(item => (
-            <li class="flex items-center gap-3 text-gray-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
+    {
+      skills.map((section) => (
+        <div class="bg-[#111827] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/5">
+          <div class="text-4xl mb-6">{section.icon}</div>
+          <h3 class="text-2xl font-bold mb-8">{section.title}</h3>
+          <ul class="space-y-4">
+            {section.items.map((item) => (
+              <li class="flex items-center gap-3 text-gray-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
   </div>
 </section>
