@@ -1,11 +1,10 @@
 ---
 title: Pydo
-description: Gestor de tareas profesional enfocado en productividad y equipos ágiles.
-image: https://images.unsplash.com/photo-1542744173-8e7e53415dee?q=80&w=2070&auto=format&fit=crop
+description: Plataforma B2B integrada en Microsoft Teams diseñada para centralizar y potenciar la comunicación corporativa mediante comunicados interactivos, gestión de eventos y encuestas a empleados.
+image: src/assets/images/pydo.png
+type: empresa
+company: "Nunsys"
 date: 2026-05-04
-tags: ["python", "fastapi", "react"]
-link: https://pydo-app.com
+tags: ["angular", "java", "react", "postgresql", "teams", "mixpanel", "azure"]
+link: https://marketplace.microsoft.com/en-us/product/office/wa200005733
 ---
-
-# Pydo
-Gestor de tareas eficiente para equipos de desarrollo.

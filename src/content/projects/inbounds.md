@@ -1,11 +1,10 @@
 ---
 title: Inbounds
-description: Sistema CRM especializado en captación y gestión de leads.
-image: https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop
+description: Plataforma integral para la gestión de academias de golf y organización de torneos. Facilita a los entrenadores el seguimiento histórico del rendimiento y la evolución técnica de sus jugadores.
+image: src/assets/images/inbounds.png
+type: empresa
+company: "Nunsys"
 date: 2026-05-04
-tags: ["marketing", "crm", "analytics"]
-link: https://inbounds.app
+tags: ["angular", "php", "postgres", "ionic", "mixpanel"]
+link: https://coachinbounds.com/
 ---
-
-# Inbounds
-CRM enfocado en la conversión de leads inbound.
