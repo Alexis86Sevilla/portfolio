@@ -13,9 +13,8 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Alexis Dev | Portfolio</title>
+    <slot name="head" />
     <ClientRouter />
   </head>
   <body class="min-h-screen text-white relative flex flex-col">
