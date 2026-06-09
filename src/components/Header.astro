@@ -13,16 +13,95 @@
     <ul
       class="flex flex-wrap justify-center gap-4 md:gap-8 text-[12px] font-mono uppercase tracking-widest mt-2 md:mt-0"
     >
-      <li><a href="/" class="hover:text-accent transition">Inicio</a></li>
       <li>
-        <a href="/about" class="hover:text-accent transition">Sobre mí</a>
+        <a
+          href="/"
+          data-section="home"
+          class="nav-link hover:text-blue-400 transition relative"
+        >
+          Inicio
+        </a>
       </li>
       <li>
-        <a href="/#proyectos" class="hover:text-accent transition">Proyectos</a>
+        <a
+          href="/about"
+          data-section="about"
+          class="nav-link hover:text-blue-400 transition relative"
+        >
+          Sobre mí
+        </a>
       </li>
       <li>
-        <a href="/#skills" class="hover:text-accent transition">Habilidades</a>
+        <a
+          href="/#proyectos"
+          data-section="proyectos"
+          class="nav-link hover:text-blue-400 transition relative"
+        >
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/#skills"
+          data-section="skills"
+          class="nav-link hover:text-blue-400 transition relative"
+        >
+          Habilidades
+        </a>
       </li>
     </ul>
   </nav>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = ["home", "proyectos", "skills"];
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -80% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id || "home";
+
+          navLinks.forEach((link) => {
+            link.classList.remove("text-blue-400");
+            link.removeAttribute("aria-current");
+          });
+
+          const activeLink = document.querySelector(
+            `[data-section="${sectionId}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add("text-blue-400");
+            activeLink.setAttribute("aria-current", "page");
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    if (window.location.pathname === "/about") {
+      navLinks.forEach((link) => {
+        link.classList.remove("text-blue-400");
+        link.removeAttribute("aria-current");
+      });
+      const aboutLink = document.querySelector('[data-section="about"]');
+      if (aboutLink) {
+        aboutLink.classList.add("text-blue-400");
+        aboutLink.setAttribute("aria-current", "page");
+      }
+    }
+  });
+</script>
