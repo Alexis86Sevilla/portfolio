@@ -54,9 +54,23 @@
 </header>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initActiveNav() {
     const sections = ["home", "proyectos", "skills"];
     const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      link.classList.remove("text-blue-400");
+      link.removeAttribute("aria-current");
+    });
+
+    if (window.location.pathname === "/about") {
+      const aboutLink = document.querySelector('[data-section="about"]');
+      if (aboutLink) {
+        aboutLink.classList.add("text-blue-400");
+        aboutLink.setAttribute("aria-current", "page");
+      }
+      return;
+    }
 
     const observerOptions = {
       root: null,
@@ -91,17 +105,8 @@
         observer.observe(element);
       }
     });
+  }
 
-    if (window.location.pathname === "/about") {
-      navLinks.forEach((link) => {
-        link.classList.remove("text-blue-400");
-        link.removeAttribute("aria-current");
-      });
-      const aboutLink = document.querySelector('[data-section="about"]');
-      if (aboutLink) {
-        aboutLink.classList.add("text-blue-400");
-        aboutLink.setAttribute("aria-current", "page");
-      }
-    }
-  });
+  document.addEventListener("DOMContentLoaded", initActiveNav);
+  document.addEventListener("astro:page-load", initActiveNav);
 </script>
