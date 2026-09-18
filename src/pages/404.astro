@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    title="Página no encontrada | Alexis García"
+    description="La página que buscas no existe o se ha movido."
+  />
+
+  <section
+    class="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-40 md:pt-32 pb-32"
+  >
+    <p class="font-mono text-blue-400 text-sm mb-4 tracking-widest">
+      ERROR 404
+    </p>
+    <h1
+      class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+    >
+      Página no encontrada
+    </h1>
+    <p class="text-lg md:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed">
+      La página que buscas no existe o se ha movido de sitio.
+    </p>
+    <a
+      href="/"
+      class="bg-blue-600 hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
+      >Volver al inicio</a
+    >
+  </section>
+</Layout>
