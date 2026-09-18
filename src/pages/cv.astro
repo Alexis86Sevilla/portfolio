@@ -1,0 +1,203 @@
+---
+import SEO from "../components/SEO.astro";
+import Layout from "../layouts/Layout.astro";
+import { cv } from "../data/cv";
+
+const { identity, profile, experience, stack, projects, education } = cv;
+
+const contactItems: { text: string; href?: string }[] = [
+  { text: identity.location },
+  { text: identity.email, href: `mailto:${identity.email}` },
+  { text: identity.linkedin.label, href: identity.linkedin.href },
+  { text: identity.github.label, href: identity.github.href },
+  { text: identity.website.label, href: identity.website.href },
+];
+
+const [roleDates, ...roleMetaRest] = experience.meta.split(" · ");
+const roleMetaTail = roleMetaRest.join(" · ");
+
+const isDateLabel = (label: string) => /\d{4}/.test(label);
+
+const fieldsGridClass =
+  "cv-fields grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[minmax(9rem,14rem)_1fr] sm:gap-y-3";
+const fieldsLabelClass =
+  "cv-fields-label font-mono text-xs uppercase tracking-[0.05em] text-text-muted pt-[0.15rem] print:text-[#1a1a1a]";
+const fieldsValueClass =
+  "cv-fields-value m-0 text-text-main leading-[1.6] print:text-[#1a1a1a]";
+
+const sectionHeadingClass =
+  "text-2xl md:text-3xl font-bold tracking-tighter mb-6 pb-2 border-b border-white/10 print:text-black print:border-[#999999] print:text-[13pt] print:mb-[3mm] print:pb-[1mm] print:break-after-avoid";
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    title="CV — Alexis García Mancha | Desarrollador Web Full Stack"
+    description="Currículum de Alexis García Mancha, desarrollador web full stack especializado en Angular, Java y Spring Boot, con foco en producto."
+  />
+
+  <article class="cv-article mx-auto max-w-4xl px-6 pt-40 md:pt-32 pb-24 print:pt-0 print:pb-0 print:max-w-none">
+    <div class="cv-print-bar mb-10 flex justify-end print:hidden">
+      <button
+        id="print-cv-button"
+        type="button"
+        class="cursor-pointer border border-white/10 hover:border-white/30 hover:bg-white/5 px-8 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
+      >
+        Imprimir / Guardar como PDF
+      </button>
+    </div>
+
+    <header class="cv-header mb-16 print:mb-[8mm]">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-3 print:text-black print:text-[20pt] print:leading-[1.15] print:mb-[2mm] print:break-after-avoid">
+        {identity.name}
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 mb-6 print:text-[#1a1a1a] print:text-[11pt] print:mb-[3mm]">{identity.headline}</p>
+      <ul class="cv-contact flex flex-wrap text-sm text-gray-400 print:text-[9pt]">
+        {
+          contactItems.map((item) => (
+            <li class="after:content-['·'] after:mx-[0.6rem] after:text-text-muted last:after:content-none print:text-[#1a1a1a] print:after:text-[#1a1a1a]">
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target={item.href.startsWith("https://") ? "_blank" : undefined}
+                  class="hover:text-blue-400 transition print:text-[#1a1a1a] print:no-underline"
+                >
+                  {item.text}
+                </a>
+              ) : (
+                item.text
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+
+    <section class="cv-section mb-14 print:mb-[7mm]">
+      <h2 class={sectionHeadingClass}>
+        Perfil
+      </h2>
+      <p class="text-gray-300 leading-relaxed print:text-[#1a1a1a]">{profile}</p>
+    </section>
+
+    <section class="cv-section mb-14 print:mb-[7mm]">
+      <h2 class={sectionHeadingClass}>
+        Experiencia
+      </h2>
+
+      <div class="cv-role">
+        <h3 class="text-xl md:text-2xl font-bold tracking-tighter text-white mb-1 print:text-black print:text-[12pt] print:break-after-avoid">
+          {experience.role} · {experience.company}
+        </h3>
+        <p class="text-sm text-gray-500 mb-4 print:text-[#1a1a1a]">
+          <time>{roleDates}</time>{roleMetaTail ? ` · ${roleMetaTail}` : ""}
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-8 print:text-[#1a1a1a]">{experience.summary}</p>
+
+        <div class="cv-subblocks grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-[4mm]">
+          {
+            experience.subBlocks.map((sb) => (
+              <div class="cv-subblock print:break-inside-avoid bg-[#111827] border border-white/5 rounded-3xl p-6 print:bg-white print:border-[#cccccc] print:p-[4mm] print:rounded-[2mm]">
+                <h4 class="text-lg font-bold text-white mb-1 print:text-black print:text-[10.5pt] print:break-after-avoid">
+                  {sb.name}
+                  {sb.context && (
+                    <span class="text-gray-400 font-normal print:text-[#1a1a1a]"> — {sb.context}</span>
+                  )}
+                </h4>
+                <div class="flex flex-wrap gap-2 mb-4 mt-3">
+                  {sb.tags.map((tag) => (
+                    <span class="border border-blue-500/30 text-blue-400 px-3 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider print:border-[#999999] print:text-[#333333]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <ul class="space-y-2 text-sm text-gray-400 leading-relaxed list-disc list-outside pl-4">
+                  {sb.bullets.map((bullet) => (
+                    <li class="print:text-[#1a1a1a]">{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section mb-14 print:mb-[7mm]">
+      <h2 class={sectionHeadingClass}>
+        Stack
+      </h2>
+      <dl class={fieldsGridClass}>
+        {
+          stack.map((item) => (
+            <>
+              <dt class={fieldsLabelClass}>{item.label}</dt>
+              <dd class={fieldsValueClass}>{item.value}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="cv-section mb-14 print:mb-[7mm]">
+      <h2 class={sectionHeadingClass}>
+        Proyectos propios
+      </h2>
+      <dl class={fieldsGridClass}>
+        {
+          projects.map((item) => (
+            <>
+              <dt class={fieldsLabelClass}>{item.label}</dt>
+              <dd class={fieldsValueClass}>{item.value}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="cv-section mb-14 print:mb-[7mm]">
+      <h2 class={sectionHeadingClass}>
+        Formación e idiomas
+      </h2>
+      <dl class={fieldsGridClass}>
+        {
+          education.map((item) => (
+            <>
+              <dt class={fieldsLabelClass}>
+                {isDateLabel(item.label) ? <time>{item.label}</time> : item.label}
+              </dt>
+              <dd class={fieldsValueClass}>{item.value}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </section>
+  </article>
+</Layout>
+
+<script>
+  let currentClickHandler: (() => void) | null = null;
+
+  function initPrintButton() {
+    const button = document.getElementById("print-cv-button");
+    if (!button) return;
+
+    if (currentClickHandler) {
+      button.removeEventListener("click", currentClickHandler);
+      currentClickHandler = null;
+    }
+
+    const handler = () => window.print();
+    currentClickHandler = handler;
+    button.addEventListener("click", handler);
+  }
+
+  document.addEventListener("astro:page-load", initPrintButton);
+</script>
+
+<style is:global>
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+</style>
