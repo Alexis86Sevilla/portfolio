@@ -1,26 +1,6 @@
 @import "tailwindcss";
-
-@theme {
-  --color-bg-deep: #0a0a0a;
-  --color-text-main: #ededed;
-  --color-accent: #ff3e00;
-}
-
-:root {
-  background-color: var(--color-bg-deep);
-  color: var(--color-text-main);
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth; /* Esto suaviza el salto a los anclas */
-}
-
-h1, h2, h3 {
-  letter-spacing: -0.05em;
-  font-weight: 800;
-}
-
-code {
-  font-family: 'JetBrains Mono', monospace;
-}
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
 @import "@fontsource/inter/700.css";
 @import "@fontsource/jetbrains-mono/400.css";
 
@@ -33,10 +13,21 @@ code {
   --color-accent: #3b82f6;
 }
 
+html {
+  scroll-behavior: smooth; /* Smooth scroll to anchors */
+}
+
 body {
   background-color: var(--color-bg-base);
   color: var(--color-text-main);
   font-family: var(--font-sans);
+}
+
+@media print {
+  body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+  }
 }
 
 h1, h2, h3 {
@@ -46,4 +37,15 @@ h1, h2, h3 {
 
 code, pre {
   font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
