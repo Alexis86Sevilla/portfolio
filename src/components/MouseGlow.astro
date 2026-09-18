@@ -1,10 +1,44 @@
-<div id="mouse-glow" class="pointer-events-none fixed inset-0 z-0 opacity-0 transition-opacity duration-300"></div>
+<div id="mouse-glow" class="pointer-events-none fixed inset-0 z-0 opacity-0 transition-opacity duration-300 print:hidden"></div>
 
 <script>
-  document.addEventListener('mousemove', (e) => {
-    const glow = document.getElementById('mouse-glow');
+  let currentHandler: ((e: MouseEvent) => void) | null = null;
+
+  function initMouseGlow() {
+    if (currentHandler) {
+      document.removeEventListener("mousemove", currentHandler);
+      currentHandler = null;
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) return;
+
+    const glow = document.getElementById("mouse-glow");
     if (!glow) return;
-    glow.style.opacity = '1';
-    glow.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
-  });
+
+    let latestX = 0;
+    let latestY = 0;
+    let frameRequested = false;
+
+    const paint = () => {
+      frameRequested = false;
+      glow.style.opacity = "1";
+      glow.style.background = `radial-gradient(600px at ${latestX}px ${latestY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
+    };
+
+    const handler = (e: MouseEvent) => {
+      latestX = e.clientX;
+      latestY = e.clientY;
+      if (!frameRequested) {
+        frameRequested = true;
+        requestAnimationFrame(paint);
+      }
+    };
+
+    currentHandler = handler;
+    document.addEventListener("mousemove", handler);
+  }
+
+  document.addEventListener("astro:page-load", initMouseGlow);
 </script>
