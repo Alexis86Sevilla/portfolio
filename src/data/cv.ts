@@ -57,8 +57,8 @@ export const cv: Cv = {
       href: "https://github.com/Alexis86Sevilla",
     },
     website: {
-      label: "portfolio-465.pages.dev",
-      href: "https://portfolio-465.pages.dev",
+      label: "www.portfolio-alexis.workers.dev",
+      href: "https://www.portfolio-alexis.workers.dev",
     },
   },
 
