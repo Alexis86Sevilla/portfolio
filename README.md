@@ -14,7 +14,7 @@ Este repositorio contiene mi portfolio personal, construido con un enfoque técn
 
 ## ✨ Características Principales
 
-- **Diseño Responsive & Mobile-First:** Navegación optimizada con menú tipo hamburguesa y layouts flexibles.
+- **Diseño Responsive & Mobile-First:** Navegación adaptable y layouts flexibles.
 - **Optimización de Imágenes:** Uso nativo de `astro:assets` para carga diferida (lazy loading) y conversión automática a formatos de última generación (`.webp`).
 - **Arquitectura de Contenido:** Esquema estricto definido en `src/content.config.ts` para diferenciar proyectos personales de corporativos.
 - **Interacciones Fluidas:** Implementación de `astro:transitions` (View Transitions) para una experiencia tipo SPA sin perder los beneficios del SEO.
@@ -30,7 +30,7 @@ Este repositorio contiene mi portfolio personal, construido con un enfoque técn
 │   ├── components/    # Componentes modulares (Hero, ProjectCard, MouseGlow, etc.)
 │   ├── content/       # Contenido en Markdown para los proyectos
 │   ├── layouts/       # Estructura base (Layout.astro)
-│   ├── pages/         # Rutas estáticas (Index, About)
+│   ├── pages/         # Rutas estáticas (Index, About, CV, 404)
 │   └── styles/        # Estilos globales y tokens de diseño
 ├── src/content.config.ts # Corazón de la gestión de datos y esquemas
 └── astro.config.mjs   # Configuración de integraciones y adaptadores
@@ -53,7 +53,7 @@ Los proyectos se gestionan en `src/content/projects/`. El esquema requiere los s
 ---
 title: "Nombre del Proyecto"
 description: "Descripción enfocada al valor de negocio."
-image: "src/assets/images/imagen.png"
+image: "../../assets/images/imagen.png"
 type: "personal" | "empresa"
 company: "Nombre de la empresa" (opcional)
 date: YYYY-MM-DD
