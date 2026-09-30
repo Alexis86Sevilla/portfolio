@@ -2,13 +2,15 @@
 
 Este repositorio contiene mi portfolio personal, construido con un enfoque técnico moderno, código limpio y un diseño mobile-first. Diseñado para ser rápido, accesible y fácil de mantener.
 
+🌐 **En producción:** [www.portfolio-alexis.workers.dev](https://www.portfolio-alexis.workers.dev)
+
 ## 🚀 Stack Tecnológico
 
 - **Framework:** [Astro 6.x](https://astro.build/) (SSG Mode)
 - **Lenguaje:** TypeScript
 - **Estilos:** Tailwind CSS (v4)
 - **Gestión de Contenido:** Content Collections con validación de esquemas (Zod)
-- **Despliegue:** Optimizado para Cloudflare Pages
+- **Despliegue:** Cloudflare Workers (static assets)
 
 ## ✨ Características Principales
 
@@ -65,7 +67,7 @@ codeLink: "https://github.com/repo" (opcional)
 
 - **View Transitions:** El componente `MouseGlow` y el `Header` están preparados para sobrevivir al ciclo de vida de las transiciones de Astro mediante el evento `astro:page-load`.
 - **Image Loader:** Se utiliza `import.meta.glob` para la carga dinámica de metadatos de imágenes en las colecciones, permitiendo que el componente `<Image />` de Astro optimice rutas dinámicas de Markdown.
-- **Despliegue en Cloudflare:** Se recomienda el uso de **Cloudflare Pages** sobre Workers para garantizar el correcto servido de imágenes optimizadas de forma estática (SSG).
+- **Despliegue en Cloudflare:** El sitio se genera de forma estática (SSG) y se sirve como **Cloudflare Worker** con static assets (`wrangler.jsonc` sirve `dist/`). Cada push a `main` despliega automáticamente mediante Workers Builds (`pnpm build` + `npx wrangler deploy`).
 
 ---
 
