@@ -103,7 +103,7 @@ export const cv: Cv = {
         tags: ["TRANSVERSAL"],
         bullets: [
           "Instrumenté Mixpanel y construí los dashboards de producto: el equipo pasó de decidir funcionalidades por intuición a priorizar sobre uso real.",
-          "Con marketing, Google Analytics y Looker Studio sobre landing pages —rebote por página, scroll, clics, botones y formularios— para dirigir la optimización.",
+          "Con marketing, usé Google Analytics y Looker Studio sobre landing pages —rebote por página, scroll, clics, botones y formularios— para dirigir la optimización.",
         ],
       },
     ],
