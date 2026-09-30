@@ -5,6 +5,6 @@ image: ../../assets/images/inbounds.png
 type: empresa
 company: "Nunsys"
 date: 2026-05-04
-tags: ["angular", "php", "postgres", "ionic", "mixpanel"]
+tags: ["angular", "ionic", "postgresql", "mixpanel"]
 link: https://coachinbounds.com/
 ---

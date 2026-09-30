@@ -5,6 +5,6 @@ image: ../../assets/images/golftomic.png
 type: empresa
 company: "Nunsys"
 date: 2026-05-04
-tags: ["angular", "laravel", "postgresql", "mixpanel"]
+tags: ["angular", "postgresql", "mixpanel"]
 link: https://golftomic.com/
 ---

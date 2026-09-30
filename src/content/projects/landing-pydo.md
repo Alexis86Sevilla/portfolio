@@ -6,5 +6,5 @@ type: empresa
 company: "Nunsys"
 date: 2026-05-03
 tags: ["astro", "tailwind", "google analytics"]
-link: https://golftomic.com/
+link: https://pydo.ai/
 ---
