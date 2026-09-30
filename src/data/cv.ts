@@ -45,7 +45,7 @@ export interface Cv {
 export const cv: Cv = {
   identity: {
     name: "Alexis García Mancha",
-    headline: "Desarrollador Web Full Stack · Angular · Java · Producto",
+    headline: "Desarrollador Frontend orientado a producto · Angular · TypeScript",
     location: "Sevilla, España — remoto",
     email: "alegarman86@gmail.com",
     linkedin: {
@@ -63,7 +63,7 @@ export const cv: Cv = {
   },
 
   profile:
-    "Desarrollador web full stack con 4 años de experiencia en producto, con el peso en Angular y capacidad de bajar a Java y Spring Boot. Modernizo aplicaciones vivas y arranco nuevas: migré un SaaS empresarial de Angular 13 a 21 sin parar el servicio, y definí el stack de otros dos productos desde cero. Decido qué se construye a partir de datos de uso reales, no de intuición.",
+    "Desarrollador frontend orientado a producto, con más de 5 años desarrollando (4 en producto profesional), especializado en Angular y con base en Java y Spring Boot para trabajar en backend cuando el producto lo necesita. Modernizo aplicaciones vivas y arranco nuevas: migré un SaaS empresarial de Angular 13 a 21 sin parar el servicio, y definí el stack de otros dos productos desde cero. Decido qué se construye a partir de datos de uso reales, no de intuición.",
 
   experience: {
     role: "Desarrollador Web Full Stack",
@@ -78,7 +78,7 @@ export const cv: Cv = {
         tags: ["SAAS B2B", "TEAMS STORE"],
         bullets: [
           "Migración de Angular 13 a 21 — ocho versiones mayores, cuatro años de deuda técnica, sobre un producto en producción y con clientes. En dos fases (13 → 20, después 20 → 21), atravesando standalone components, el nuevo control flow, signals y el modelo zoneless.",
-          "Producto publicado en la Microsoft Teams Store y certificado en el programa de aplicaciones de Microsoft 365: SSO con Entra ID e integración con Microsoft Graph. Eliminé código y dependencias residuales, y modernicé la UI y la UX junto a diseño.",
+          "Producto publicado en la Microsoft Teams Store y certificado en el programa de aplicaciones de Microsoft 365. Eliminé código y dependencias residuales, y modernicé la UI y la UX junto a diseño.",
         ],
       },
       {
@@ -118,7 +118,7 @@ export const cv: Cv = {
     {
       label: "BACKEND Y PLATAFORMA",
       value:
-        "Java · Spring Boot · PostgreSQL · Microsoft Graph · Entra ID (SSO) · Azure · CI/CD",
+        "Java · Spring Boot · PostgreSQL · Docker · Azure · CI/CD",
     },
     {
       label: "PRODUCTO Y DATOS",
@@ -131,11 +131,6 @@ export const cv: Cv = {
       label: "URBAN-OASIS",
       value:
         "Angular 21 · Tailwind · Leaflet · Spring Boot · Java 21 · PostgreSQL — buscador de refugios climáticos en Sevilla con datos de OpenStreetMap. Fullstack, con CI/CD y en producción en urban-oasis.info.",
-    },
-    {
-      label: "API-SENTINEL",
-      value:
-        "Java — auditoría de infraestructura: protocolos HTTP, CORS, cabeceras OWASP y certificados SSL.",
     },
   ],
 
