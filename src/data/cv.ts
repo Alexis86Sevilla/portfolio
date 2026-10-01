@@ -128,6 +128,11 @@ export const cv: Cv = {
 
   projects: [
     {
+      label: "SEVILLA-SIN-LUZ",
+      value:
+        "Angular 21 · Chart.js · Spring Boot · Java 21 · PostgreSQL — dashboard ciudadano que monitoriza en tiempo real los cortes de luz por barrio en Sevilla con datos públicos de Endesa y publica el histórico como datos abiertos (CC BY 4.0). VPS propio con nginx y CI/CD, en producción en sevillasinluz.es.",
+    },
+    {
       label: "URBAN-OASIS",
       value:
         "Angular 21 · Tailwind · Leaflet · Spring Boot · Java 21 · PostgreSQL — buscador de refugios climáticos en Sevilla con datos de OpenStreetMap. Fullstack, con CI/CD y en producción en urban-oasis.info.",
